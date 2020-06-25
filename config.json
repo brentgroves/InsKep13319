@@ -1,0 +1,9 @@
+{
+  "Database": {
+    "host": "localhost",
+    "user": "brent",
+    "password": "JesusLives1!",
+    "insecureAuth": true,
+    "database": "mach2"
+  }
+}
