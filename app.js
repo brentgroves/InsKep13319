@@ -1,10 +1,8 @@
 const mariadb = require("mariadb");
 const mqtt = require('mqtt');
 const common = require('@bgroves/common');
-var datetime = require('node-datetime');
 
 
-// const MQTT_SERVER='localhost';
 
 
 const {
@@ -14,12 +12,13 @@ const {
   MYSQL_PASSWORD,
   MYSQL_DATABASE
 } = process.env;
-
-//const MYSQL_HOSTNAME= "localhost";
-//const MYSQL_USERNAME= "brent";
-//const MYSQL_PASSWORD= "JesusLives1!";
-//const MYSQL_DATABASE= "mach2";
-
+/*
+const MQTT_SERVER='localhost';
+const MYSQL_HOSTNAME= "localhost";
+const MYSQL_USERNAME= "brent";
+const MYSQL_PASSWORD= "JesusLives1!";
+const MYSQL_DATABASE= "mach2";
+*/
 const connectionString = {
   connectionLimit: 5,
   multipleStatements: true,
