@@ -34,11 +34,11 @@ const pool = mariadb.createPool( connectionString);
 
 
 
-async function InsKep13319(nodeId,plexus_Customer_No,pcn, workcenter_Key,workcenter_Code,cnc,cycle_Counter_Shift_SL,transDate) {
+async function InsKep13319(nodeId,name,plexus_Customer_No,pcn, workcenter_Key,workcenter_Code,cnc,value,transDate) {
   let conn;
   try {
     conn = await pool.getConnection();      
-    const someRows = await conn.query('call InsKep13319(?,?,?,?,?,?,?,?)',[nodeId,plexus_Customer_No,pcn, workcenter_Key,workcenter_Code,cnc,cycle_Counter_Shift_SL,transDate]);
+    const someRows = await conn.query('call InsKep13319(?,?,?,?,?,?,?,?,?)',[nodeId,name,plexus_Customer_No,pcn, workcenter_Key,workcenter_Code,cnc,value,transDate]);
     let msgString = JSON.stringify(someRows[0]);
     const obj = JSON.parse(msgString.toString()); // payload is a buffer
     common.log(obj);
@@ -69,7 +69,7 @@ function main() {
     const obj = JSON.parse(message.toString()); // payload is a buffer
 
     common.log(`InsKep13319 => ${message.toString()}`);
-    InsKep13319(obj.nodeId,obj.plexus_Customer_No,obj.pcn,obj.workcenter_Key,obj.workcenter_Code,obj.cnc,obj.cycle_Counter_Shift_SL,obj.transDate);
+    InsKep13319(obj.nodeId,obj.name,obj.plexus_Customer_No,obj.pcn,obj.workcenter_Key,obj.workcenter_Code,obj.cnc,obj.value,obj.transDate);
 
   });
 }
