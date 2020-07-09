@@ -67,7 +67,6 @@ function main() {
   // message is a buffer
   mqttClient.on('message', function(topic, message) {
     const obj = JSON.parse(message.toString()); // payload is a buffer
-
     common.log(`InsKep13319 => ${message.toString()}`);
     InsKep13319(obj.nodeId,obj.name,obj.plexus_Customer_No,obj.pcn,obj.workcenter_Key,obj.workcenter_Code,obj.cnc,obj.value,obj.transDate);
 
